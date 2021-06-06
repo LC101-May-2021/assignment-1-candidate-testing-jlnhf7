@@ -144,20 +144,25 @@ function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
   let points = [ ];
-  let pointsScored = [ ];
+  // let pointsScored = [ ];
   for (let i=0; i<candidateAnswers.length; i++) {
-    if (candidateAnswers[i] === correctAnswers[i]){
+    if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()){
       points ++;
+    }
+    }
       // let pointsScored = points[i];
       // let total = 0;
       // for (let i = 0; i < pointsScored.length; i++) {
       // total += pointsScored[i]; 
 
-  let grade = (points / questions.length) * (100);
-  console.log(`>>> Overall Grade: ${grade}% (${points} of ${questions.length} correct) <<<`);
-  return grade;
+  let grade = (points / questions.length * 100);
+  console.log(`>>> Overall Grade: ${grade}% (${points} of ${questions.length} responses correct) <<<`);
+  if (grade >= 80) {
+    console.log(`>>> Status: PASSED <<<`);
+  } else {
+    console.log (`>>> Status: FAILED <<<`); 
   }
-  }
+
 }
 
 function runProgram() {
